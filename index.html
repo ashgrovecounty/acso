@@ -14,7 +14,7 @@
   <div id="topbar-right">
     <span class="topbar-badge red">&#9888; CASE REOPENED</span>
     <span class="topbar-badge green">&#9679; SITE ONLINE</span>
-    <span class="topbar-badge">Last Updated: 10/03/2026</span>
+    <span class="topbar-badge" id="topbar-date">Last Updated: —</span>
   </div>
 </div>
 
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="marquee-bar">
-    <span class="marquee-inner">&#9733; NON-EMERGENCY: (307) 362-1293 &nbsp;&nbsp; &#9733; CASE #85-1216 OFFICIALLY REOPENED &mdash; PUBLIC TIPS WELCOME &nbsp;&nbsp; &#9733; ARCHIVE DIGITIZATION PROJECT UNDERWAY &mdash; DOCUMENTS NOW ONLINE &nbsp;&nbsp; &#9733; MISSING: T. ALDERMAN, 34, LAST SEEN FEB 28 &mdash; CALL (307) 362-1293 &nbsp;&nbsp; &#9733; SERVING ASHGROVE COUNTY SINCE 1891 &nbsp;&nbsp; &#9733; ANONYMOUS TIP LINE: tips@ashgrovecounty.org &nbsp;&nbsp;</span>
+    <span class="marquee-inner">&#9733; NON-EMERGENCY: (307) 362-1293 &nbsp;&nbsp; &#9733; CASE #97-0441 OFFICIALLY REOPENED &mdash; PUBLIC TIPS WELCOME &nbsp;&nbsp; &#9733; ARCHIVE DIGITIZATION PROJECT UNDERWAY &mdash; DOCUMENTS NOW ONLINE &nbsp;&nbsp; &#9733; MISSING: T. ALDERMAN, 34, LAST SEEN FEB 28 &mdash; CALL (307) 362-1293 &nbsp;&nbsp; &#9733; SERVING ASHGROVE COUNTY SINCE 1891 &nbsp;&nbsp; &#9733; ANONYMOUS TIP LINE: tips@ashgrovecounty.org &nbsp;&nbsp;</span>
   </div>
 </div>
 
@@ -53,12 +53,12 @@
   <div id="page-home" class="page active">
     <div class="page-layout">
     <main>
-      <div class="last-updated">Last updated: 03/10/2026 — 11:20PM GMT +1</div>
+      <div class="last-updated" data-auto-date>Last updated: —</div>
       <div class="page-title"><span>// Welcome</span>Ashgrove County Sheriff's Office</div>
 
       <div class="alert-box">
-        <div class="alert-title">&#9873; Active Notice &mdash; Case #85-1216 Reopened</div>
-        <p style="margin:0;">Following discovery of unprocessed evidence during the archive digitization project, Case <strong>#85-1216</strong> — originally logged October 14, 1997 — has been formally reopened. The ACSO is actively seeking information from the public. <a href="#" onclick="goTo('missing');return false;" style="color:var(--navy); font-family:'Share Tech Mono',monospace; font-size:0.78em;">View case details &rarr;</a></p>
+        <div class="alert-title">&#9873; Active Notice &mdash; Case #97-0441 Reopened</div>
+        <p style="margin:0;">Following discovery of unprocessed evidence during the archive digitization project, Case <strong>#97-0441</strong> — originally logged October 14, 1997 — has been formally reopened. The ACSO is actively seeking information from the public. <a href="#" onclick="goTo('missing');return false;" style="color:var(--navy); font-family:'Share Tech Mono',monospace; font-size:0.78em;">View case details &rarr;</a></p>
       </div>
 
       <p>Welcome to the official online presence of the Ashgrove County Sheriff's Office. This department is committed to maintaining public safety, transparency, and community trust across all 2,400 square miles of Ashgrove County, Wyoming.</p>
@@ -78,7 +78,7 @@
       <div class="news-item">
         <div class="date">March 5, 2026</div>
         <h3>Case #97-0441 Formally Reopened After Archive Discovery</h3>
-        <p>The ACSO has confirmed that Case #85-1216, connected to a series of disappearances in fall–winter 1997, has been officially reopened following the recovery of a previously unprocessed evidence box during the department's digitization project.</p>
+        <p>The ACSO has confirmed that Case #97-0441, connected to a series of disappearances in fall–winter 1997, has been officially reopened following the recovery of a previously unprocessed evidence box during the department's digitization project.</p>
         <a href="#" class="read-more" onclick="goTo('news');return false;">Read full release &rarr;</a>
       </div>
 
@@ -116,7 +116,7 @@
         <tr><td>Anonymous Tips</td><td>tips@ashgrovecounty.org &nbsp;|&nbsp; ext. 7</td></tr>
         <tr><td>Public Records</td><td>records@ashgrovecounty.org</td></tr>
         <tr><td>Office Hours</td><td>Mon–Fri, 8:00 AM – 5:00 PM MST</td></tr>
-        <tr><td>Address</td><td>County Road 4, Ashgrove, WY 82099</td></tr>
+        <tr><td>Address</td><td>County Road 4, Ashgrove, WY 82XXX</td></tr>
       </table>
     </main>
 
@@ -130,7 +130,9 @@
         </div>
         <div class="counter-box">
           <div class="counter-label">Visitors <span class="blink">&#9608;</span></div>
-          <div class="counter-digits" id="hit-counter">004821</div>
+          <a href="https://hits.seeyoufarm.com">
+            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fashgrovecounty.org&count_bg=%234AFF8A&title_bg=%230F1928&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true" style="max-width:100%;height:auto;" alt="visitor counter"/>
+          </a>
         </div>
       </div>
 
@@ -138,9 +140,9 @@
         <div class="sidebar-box-title">Weather — Ashgrove</div>
         <div class="sidebar-box-body">
           <div class="weather-box">
-            <div class="weather-temp">27°F</div>
+            <div class="weather-temp">28°F</div>
             <div class="weather-desc">Partly Cloudy</div>
-            <div class="weather-location">Ashgrove, WY 82009</div>
+            <div class="weather-location">Ashgrove, WY 82XXX</div>
           </div>
         </div>
       </div>
@@ -160,7 +162,7 @@
       <div class="sidebar-box">
         <div class="sidebar-box-title">Active Alerts</div>
         <div class="sidebar-box-body">
-          <p style="font-size:0.75rem; color:var(--red); font-family:'Share Tech Mono',monospace; letter-spacing:0.04em;">&#9888; CASE #85-1216 REOPENED</p>
+          <p style="font-size:0.75rem; color:var(--red); font-family:'Share Tech Mono',monospace; letter-spacing:0.04em;">&#9888; CASE #97-0441 REOPENED</p>
           <p style="font-size:0.75rem; color:var(--red); font-family:'Share Tech Mono',monospace; letter-spacing:0.04em;">&#9888; MISSING: T. ALDERMAN</p>
         </div>
       </div>
@@ -172,7 +174,7 @@
   <div id="page-news" class="page">
     <div class="page-layout">
     <main>
-      <div class="last-updated">Last updated: 03/07/2026 — 09:45 MST</div>
+      <div class="last-updated" data-auto-date>Last updated: —</div>
       <div class="page-title"><span>// Public Communications</span>News &amp; Press Releases</div>
 
       <p>Official press releases and public statements from the Ashgrove County Sheriff's Office. All releases are archived and available upon public records request.</p>
@@ -185,10 +187,10 @@
         </div>
         <div class="press-release-body">
           <div class="pr-for-immediate">For Immediate Release</div>
-          <h3>Case #85-1216 Formally Reopened Following Archive Discovery</h3>
-          <p>ASHGROVE, WY — The Ashgrove County Sheriff's Office announced today the formal reopening of Case #85-1216, a missing persons investigation originally filed October 14, 1997 and marked unresolved in March 1998.</p>
+          <h3>Case #97-0441 Formally Reopened Following Archive Discovery</h3>
+          <p>ASHGROVE, WY — The Ashgrove County Sheriff's Office announced today the formal reopening of Case #97-0441, a missing persons investigation originally filed October 14, 1997 and marked unresolved in March 1998.</p>
           <p>The case was flagged for review after department staff, conducting routine cataloging as part of the ongoing archive digitization project, recovered a sealed evidence box associated with the original investigation. The box had been mislabeled and stored with unrelated records in an off-site facility. Contents of the box are currently under examination by Detective S. Dunmore and have not been disclosed publicly.</p>
-          <p>Case #85-1216 was one of five missing persons reports filed in Ashgrove County between October 1997 and March 1998. The original lead investigator, <span class="redacted">████████████████</span>, was himself reported missing in December 1997 while the cases were ongoing. That disappearance — logged as Case #97-0591 — was never resolved and remains open.</p>
+          <p>Case #97-0441 was one of five missing persons reports filed in Ashgrove County between October 1997 and March 1998. The original lead investigator, <span class="redacted">████████████████</span>, was himself reported missing in December 1997 while the cases were ongoing. That disappearance — logged as Case #97-0591 — was never resolved and remains open.</p>
           <p>The public is encouraged to contact the ACSO with any information, however dated it may seem. Anonymous tips can be submitted via email at <strong>tips@ashgrovecounty.org</strong> or by calling ext. 7.</p>
           <div class="pr-contact">Contact: R. Voss, Public Information Officer &nbsp;|&nbsp; (307) 362-1293 ext. 4</div>
         </div>
@@ -284,7 +286,7 @@
   <div id="page-missing" class="page">
     <div class="page-layout">
     <main>
-      <div class="last-updated">Last updated: 03/07/2026 — 09:14 MST</div>
+      <div class="last-updated" data-auto-date>Last updated: —</div>
       <div class="page-title"><span>// Active &amp; Cold Cases</span>Missing Persons Registry</div>
 
       <p>The following individuals have been reported missing within Ashgrove County jurisdiction. Contact the ACSO immediately at <strong>(307) 362-1293</strong> or submit a tip at <strong>tips@ashgrovecounty.org</strong>.</p>
@@ -309,7 +311,7 @@
         </div>
 
         <div class="mp-card">
-          <div class="mp-card-header"><span>Case #85-1216</span><span class="status-reopened">&#9679; Reopened</span></div>
+          <div class="mp-card-header"><span>Case #97-0441</span><span class="status-reopened">&#9679; Reopened</span></div>
           <div class="mp-photo">Photo On File<br/>[ Access Restricted ]</div>
           <div class="mp-card-body">
             <h4><span class="redacted">████████████████</span></h4>
@@ -412,7 +414,7 @@
   <div id="page-about" class="page">
     <div class="page-layout">
     <main>
-      <div class="last-updated">Last updated: 01/15/2026 — 14:33 MST</div>
+      <div class="last-updated" data-auto-date>Last updated: —</div>
       <div class="page-title"><span>// Department Info</span>About the Ashgrove County Sheriff's Office</div>
 
       <p>The Ashgrove County Sheriff's Office was established in 1891, the same year Wyoming achieved statehood. For over 130 years, the department has served the residents of Ashgrove County with a commitment to integrity, professionalism, and public safety.</p>
@@ -514,7 +516,7 @@
           <div class="contact-line"><span class="contact-label">Non-Emergency</span><span class="contact-number">(307) 362-1293</span></div>
           <div class="contact-line">
             <span class="contact-label">Address</span>
-            <span style="font-size:0.78rem;color:#445570;">County Road 4<br/>Ashgrove, WY 82099</span>
+            <span style="font-size:0.78rem;color:#445570;">County Road 4<br/>Ashgrove, WY 82XXX</span>
           </div>
         </div>
       </div>
@@ -545,7 +547,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div>Ashgrove County Sheriff's Office &nbsp;&middot;&nbsp; County Road 4, Ashgrove, Wyoming 82099 &nbsp;&middot;&nbsp; Est. 1891</div>
+  <div>Ashgrove County Sheriff's Office &nbsp;&middot;&nbsp; County Road 4, Ashgrove, Wyoming 82XXX &nbsp;&middot;&nbsp; Est. 1891</div>
   <div id="footer-line2">Non-Emergency: (307) 362-1293 &nbsp;&middot;&nbsp; <a href="#">tips@ashgrovecounty.org</a> &nbsp;&middot;&nbsp; <a href="#">Public Records</a> &nbsp;&middot;&nbsp; <a href="#">Instagram: @acsowyoming</a></div>
   <div class="footer-badges">
     <span class="footer-badge">&#9733; Official Government Site</span>

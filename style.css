@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
     :root {
@@ -672,12 +671,9 @@
       padding: 4px 8px;
     }
 
-    .archive-photo-box { overflow: hidden; }
+    .archive-photo-box {}
     .archive-photo-box img {
       width: 100%;
-      height: auto;
-      max-height: 260px;
-      object-fit: contain;
       display: block;
       filter: grayscale(1) contrast(1.1) brightness(0.9);
     }
@@ -702,12 +698,9 @@
     .dept-photo-wide {
       margin-bottom: 20px;
       border: 2px solid var(--navy);
-      overflow: hidden;
     }
     .dept-photo-wide img {
-      width: 100%; height: auto;
-      max-height: 420px;
-      object-fit: contain;
+      width: 100%;
       display: block;
       filter: saturate(0.75) contrast(1.05);
     }
@@ -724,12 +717,9 @@
     .pr-inline-photo {
       margin: 14px 0;
       border: 1px solid var(--navy);
-      overflow: hidden;
     }
     .pr-inline-photo img {
-      width: 100%; height: auto;
-      max-height: 400px;
-      object-fit: contain;
+      width: 100%;
       display: block;
       filter: saturate(0.8) contrast(1.05);
     }

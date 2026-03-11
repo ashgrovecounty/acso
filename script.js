@@ -6,8 +6,25 @@ function showPage(id, navEl) {
     document.getElementById('nav-menu').classList.remove('open');
     window.scrollTo(0, 0);
   }
+
   function goTo(id) {
     showPage(id, document.getElementById('nav-' + id));
   }
-  document.getElementById('hit-counter').textContent =
-    String(4821 + Math.floor(Math.random() * 200)).padStart(6, '0');
+
+  // Auto date — fills all [data-auto-date] elements and the topbar badge
+  (function() {
+    const now = new Date();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const yyyy = now.getFullYear();
+    const hh = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    const tz = 'MST';
+    const dateStr = mm + '/' + dd + '/' + yyyy;
+    const fullStr = 'Last updated: ' + dateStr + ' — ' + hh + ':' + min + ' ' + tz;
+
+    document.querySelectorAll('[data-auto-date]').forEach(el => el.textContent = fullStr);
+
+    const topbar = document.getElementById('topbar-date');
+    if (topbar) topbar.textContent = 'Last Updated: ' + dateStr;
+  })();

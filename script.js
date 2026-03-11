@@ -11,20 +11,17 @@ function showPage(id, navEl) {
     showPage(id, document.getElementById('nav-' + id));
   }
 
-  // Auto date — fills all [data-auto-date] elements and the topbar badge
+  // Believable visitor counter
+  // Seed: site "launched" Jan 3 2026, grows ~8-15 visits/day with some noise
   (function() {
+    const launch = new Date('2026-01-03T00:00:00');
     const now = new Date();
-    const mm = String(now.getMonth() + 1).padStart(2, '0');
-    const dd = String(now.getDate()).padStart(2, '0');
-    const yyyy = now.getFullYear();
-    const hh = String(now.getHours()).padStart(2, '0');
-    const min = String(now.getMinutes()).padStart(2, '0');
-    const tz = 'MST';
-    const dateStr = mm + '/' + dd + '/' + yyyy;
-    const fullStr = 'Last updated: ' + dateStr + ' — ' + hh + ':' + min + ' ' + tz;
-
-    document.querySelectorAll('[data-auto-date]').forEach(el => el.textContent = fullStr);
-
-    const topbar = document.getElementById('topbar-date');
-    if (topbar) topbar.textContent = 'Last Updated: ' + dateStr;
+    const days = Math.max(0, (now - launch) / (1000 * 60 * 60 * 24));
+    const base = 312; // visits before launch (old site / word of mouth)
+    const avgPerDay = 11;
+    const seed = Math.floor(days * 365.25) % 9999; // stable per-day pseudo-random offset
+    const noise = ((seed * 1103515245 + 12345) & 0x7fffffff) % 40 - 20;
+    const total = Math.floor(base + days * avgPerDay + noise);
+    const el = document.getElementById('hit-counter');
+    if (el) el.textContent = String(Math.max(312, total)).padStart(6, '0');
   })();

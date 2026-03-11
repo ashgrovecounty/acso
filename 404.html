@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 — Page Not Found | ACSO</title>
+  <link rel="icon" href="Ashgrove_County_Logo.png" type="image/png"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #error-wrapper {
+      max-width: 680px;
+      margin: 60px auto;
+      padding: 0 16px;
+    }
+    .error-box {
+      background: var(--white);
+      border: 2px solid var(--navy);
+      border-top: 4px solid var(--red);
+      padding: 36px 40px;
+      text-align: center;
+    }
+    .error-code {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 5rem;
+      color: var(--navy);
+      line-height: 1;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .error-code span { color: var(--red); }
+    .error-title {
+      font-family: 'Special Elite', serif;
+      font-size: 1.4rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .error-stamp {
+      display: inline-block;
+      border: 3px solid var(--red);
+      color: var(--red);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      transform: rotate(-2deg);
+      margin-bottom: 22px;
+      opacity: 0.85;
+    }
+    .error-body {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.95rem;
+      color: #2a3550;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .error-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .error-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #d0daea;
+      color: #2a3550;
+    }
+    .error-table td:first-child {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--grey);
+      width: 36%;
+      background: #edf2fa;
+      border-right: 1px solid #c0cce0;
+    }
+    .error-back {
+      display: inline-block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      border: 2px solid var(--navy);
+      padding: 9px 20px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .error-back:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy-dark);
+    }
+    .error-case-note {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.56rem;
+      color: var(--grey);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px dashed #c0cce0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 90s TOP BAR -->
+<div id="topbar">
+  <div id="topbar-left">&#10022; ASHGROVE COUNTY, WY &nbsp;|&nbsp; EST. 1891 &nbsp;|&nbsp; OFFICIAL GOVERNMENT WEBSITE</div>
+  <div id="topbar-right">
+    <span class="topbar-badge red">&#9888; PAGE NOT FOUND</span>
+    <span class="topbar-badge green">&#9679; SITE ONLINE</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div id="header">
+  <div id="header-top">
+    <img src="Ashgrove_County_Logo.png" alt="ACSO Seal"/>
+    <div id="header-title">
+      <h1>Ashgrove County Sheriff's Office</h1>
+      <p>Ashgrove County, Wyoming &nbsp;&middot;&nbsp; Established 1891 &nbsp;&middot;&nbsp; Population: 9,624</p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="index.html">News &amp; Press Releases</a>
+    <a href="index.html">Missing Persons</a>
+    <a href="index.html">About the Department</a>
+  </div>
+</nav>
+
+<!-- ERROR CONTENT -->
+<div id="error-wrapper">
+  <div class="error-box">
+
+    <div class="error-code"><span>4</span>0<span>4</span></div>
+    <div class="error-title">Page Not Found</div>
+
+    <div class="error-stamp">File Not Located</div>
+
+    <div class="error-body">
+      <p>The page you are looking for could not be located in our system. It may have been moved, removed, or was never filed under this address.</p>
+      <p>If you believe you reached this page in error, please contact the ACSO Records &amp; Archives division. If you were looking for a specific case file or document, it may be subject to restricted access or pending digitization.</p>
+    </div>
+
+    <table class="error-table">
+      <tr><td>Error Code</td><td>HTTP 404 — Not Found</td></tr>
+      <tr><td>Requested URL</td><td id="error-url" style="font-family:'Share Tech Mono',monospace; font-size:0.7rem; word-break:break-all;">—</td></tr>
+      <tr><td>Department</td><td>Records &amp; Archives — B. Colton</td></tr>
+      <tr><td>Contact</td><td>records@ashgrovecounty.org</td></tr>
+    </table>
+
+    <a href="index.html" class="error-back">&#8592; Return to Homepage</a>
+
+    <div class="error-case-note">
+      Ashgrove County Sheriff's Office &nbsp;&middot;&nbsp; County Road 4, Ashgrove, WY 82099 &nbsp;&middot;&nbsp; (307) 362-1293
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>Ashgrove County Sheriff's Office &nbsp;&middot;&nbsp; County Road 4, Ashgrove, Wyoming 82099 &nbsp;&middot;&nbsp; Est. 1891</div>
+  <div>Non-Emergency: (307) 362-1293 &nbsp;&middot;&nbsp; <a href="#">tips@ashgrovecounty.org</a> &nbsp;&middot;&nbsp; <a href="index.html">Return to Homepage</a></div>
+  <div style="margin-top:8px;font-size:0.5rem;color:#3a4a60;">&copy; 2026 Ashgrove County Sheriff's Office. All rights reserved.</div>
+</footer>
+
+<script>
+  // Show the requested URL in the error table
+  document.getElementById('error-url').textContent = window.location.href;
+</script>
+</body>
+</html>

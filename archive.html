@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ACSO Restricted Archive — Ashgrove County Sheriff's Office</title>
+  <link rel="icon" href="Ashgrove_County_Logo.png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #0a0d12;
+      --bg2:       #0f1318;
+      --bg3:       #141820;
+      --bg4:       #1a2030;
+      --panel:     #111520;
+      --border:    #1e2840;
+      --border2:   #2a3860;
+      --navy:      #1a2744;
+      --gold:      #b8972a;
+      --gold-dim:  #7a6118;
+      --red:       #8b1a1a;
+      --red-light: #c0392b;
+      --green:     #1a4a1a;
+      --green-dim: #2a7a2a;
+      --text:      #c8d4e8;
+      --text-dim:  #6a7a9a;
+      --text-faint:#3a4a6a;
+      --mono:      'Share Tech Mono', monospace;
+      --serif:     'Special Elite', serif;
+      --body:      'Crimson Text', Georgia, serif;
+      --white:     #e8eef8;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; overflow-x:hidden; }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,20,60,0.04) 2px, rgba(0,20,60,0.04) 3px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0,10,30,0.02) 60px, rgba(0,10,30,0.02) 61px);
+      font-family: var(--mono);
+      color: var(--text);
+      font-size: 14px;
+      min-height: 100vh;
+    }
+
+    /* ── TOPBAR ── */
+    #topbar {
+      background: #000;
+      border-bottom: 1px solid #ff0000;
+      padding: 3px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.62rem; letter-spacing: 0.1em;
+    }
+    #topbar-left { color: #ff4444; text-transform: uppercase; }
+    #topbar-right { color: #ff4444; display: flex; gap: 16px; }
+    .topbar-blink { animation: blink 1.2s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── HEADER ── */
+    #header {
+      background: linear-gradient(180deg, #050810 0%, #0a0f1a 60%, #0f1520 100%);
+      border-bottom: 2px solid var(--gold-dim);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    #header::before {
+      content:'';
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(184,151,42,0.015) 10px, rgba(184,151,42,0.015) 11px);
+      pointer-events:none;
+    }
+    #header img { width:56px; height:56px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(184,151,42,0.3)) grayscale(0.3); flex-shrink:0; }
+    #header-title h1 { font-family:var(--serif); font-size:1.4rem; color:var(--gold); letter-spacing:0.04em; text-shadow:0 0 20px rgba(184,151,42,0.3); }
+    #header-title p { font-size:0.58rem; color:var(--text-dim); letter-spacing:0.12em; text-transform:uppercase; margin-top:4px; }
+    #header-badge {
+      margin-left:auto; flex-shrink:0;
+      border:1px solid var(--red-light);
+      padding:6px 12px; text-align:center;
+      background:rgba(139,26,26,0.15);
+    }
+    #header-badge div:first-child { font-size:0.48rem; color:var(--red-light); letter-spacing:0.14em; text-transform:uppercase; }
+    #header-badge div:last-child { font-size:0.9rem; color:#ff6666; margin-top:2px; }
+
+    /* ── LOGIN SCREEN ── */
+    #login-screen {
+      display:flex; align-items:center; justify-content:center;
+      min-height: calc(100vh - 120px);
+      padding: 40px 20px;
+    }
+    #login-box {
+      width: 100%; max-width: 420px;
+      border: 1px solid var(--border2);
+      background: var(--panel);
+      position: relative;
+    }
+    #login-box::before {
+      content:'';
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(255,255,255,0.008) 8px, rgba(255,255,255,0.008) 9px);
+      pointer-events:none;
+    }
+    .login-titlebar {
+      background: var(--navy);
+      border-bottom: 1px solid var(--border2);
+      padding: 6px 12px;
+      display:flex; align-items:center; justify-content:space-between;
+      font-size:0.62rem; letter-spacing:0.08em; color:var(--text);
+    }
+    .login-titlebar-dots { display:flex; gap:5px; }
+    .login-titlebar-dots span { width:10px; height:10px; border-radius:50%; background:var(--border2); display:block; }
+    .login-body { padding:28px 28px 24px; position:relative; z-index:1; }
+    .login-seal { text-align:center; margin-bottom:20px; }
+    .login-seal img { width:60px; height:60px; object-fit:contain; filter:grayscale(0.5) drop-shadow(0 0 10px rgba(184,151,42,0.2)); }
+    .login-label {
+      font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--text-dim); margin-bottom:6px; display:block;
+    }
+    .login-title { font-family:var(--serif); font-size:1.1rem; color:var(--gold); text-align:center; margin-bottom:4px; }
+    .login-subtitle { font-size:0.56rem; color:var(--text-dim); text-align:center; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:24px; }
+    .login-divider { border:none; border-top:1px solid var(--border); margin:16px 0; }
+    .login-field-label { font-size:0.56rem; color:var(--text-dim); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; display:block; }
+    #password-input {
+      width:100%; background:var(--bg); border:1px solid var(--border2);
+      color:var(--text); font-family:var(--mono); font-size:0.85rem;
+      padding:10px 12px; letter-spacing:0.12em;
+      outline:none; transition:border-color 0.2s;
+    }
+    #password-input:focus { border-color:var(--gold-dim); }
+    #password-input.error { border-color:var(--red-light); animation:shake 0.3s; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+    #login-btn {
+      width:100%; margin-top:12px;
+      background:var(--navy); border:1px solid var(--border2);
+      color:var(--gold); font-family:var(--mono); font-size:0.65rem;
+      letter-spacing:0.14em; text-transform:uppercase;
+      padding:10px; cursor:pointer;
+      transition:background 0.2s, border-color 0.2s;
+    }
+    #login-btn:hover { background:var(--bg4); border-color:var(--gold-dim); }
+    #login-error {
+      margin-top:10px; font-size:0.58rem; color:var(--red-light);
+      letter-spacing:0.08em; text-align:center; min-height:16px;
+    }
+    .login-footer { margin-top:20px; font-size:0.5rem; color:var(--text-faint); text-align:center; letter-spacing:0.08em; line-height:1.8; }
+
+    /* ── ARCHIVE SCREEN ── */
+    #archive-screen { display:none; }
+
+    #archive-topbar {
+      background:var(--bg2); border-bottom:1px solid var(--border);
+      padding:5px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      font-size:0.56rem; color:var(--text-dim); letter-spacing:0.08em;
+    }
+    #archive-topbar span { color:var(--green-dim); }
+
+    #archive-layout {
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      height: calc(100vh - 160px);
+    }
+
+    /* ── FILE TREE (left panel) ── */
+    #file-tree {
+      background:var(--bg2);
+      border-right:1px solid var(--border);
+      overflow-y:auto;
+      padding:0;
+    }
+    #file-tree::-webkit-scrollbar { width:4px; }
+    #file-tree::-webkit-scrollbar-track { background:var(--bg); }
+    #file-tree::-webkit-scrollbar-thumb { background:var(--border2); }
+
+    .tree-titlebar {
+      background:var(--navy);
+      border-bottom:1px solid var(--border2);
+      padding:5px 10px;
+      font-size:0.56rem; letter-spacing:0.1em; color:var(--text-dim);
+      text-transform:uppercase; position:sticky; top:0; z-index:2;
+    }
+
+    .tree-root { padding:8px 0; }
+
+    .tree-folder {
+      user-select:none;
+    }
+    .tree-folder-label {
+      display:flex; align-items:center; gap:6px;
+      padding:4px 10px; cursor:pointer;
+      font-size:0.65rem; letter-spacing:0.06em; color:var(--text);
+      transition:background 0.15s;
+    }
+    .tree-folder-label:hover { background:var(--bg4); }
+    .tree-folder-label.selected { background:var(--bg4); color:var(--gold); }
+    .tree-folder-icon { font-size:0.7rem; flex-shrink:0; color:var(--gold-dim); transition:transform 0.15s; }
+    .tree-folder-icon.open { transform:rotate(0deg); }
+    .tree-folder-name { flex:1; }
+    .tree-folder-count { font-size:0.48rem; color:var(--text-faint); }
+
+    .tree-children { display:none; padding-left:16px; }
+    .tree-children.open { display:block; }
+
+    .tree-subfolder > .tree-folder-label { font-size:0.62rem; }
+
+    .tree-file {
+      display:flex; align-items:center; gap:6px;
+      padding:3px 10px 3px 26px; cursor:pointer;
+      font-size:0.6rem; color:var(--text-dim); letter-spacing:0.04em;
+      transition:background 0.15s;
+    }
+    .tree-file:hover { background:var(--bg4); color:var(--text); }
+    .tree-file.selected { background:rgba(26,39,68,0.6); color:var(--white); }
+    .tree-file.locked { color:var(--text-faint); cursor:default; }
+    .tree-file.locked:hover { background:none; color:var(--text-faint); }
+    .tree-file-icon { font-size:0.62rem; flex-shrink:0; }
+    .tree-file-icon.doc { color:#4a8aff; }
+    .tree-file-icon.img { color:#4aaa44; }
+    .tree-file-icon.aud { color:#aa44aa; }
+    .tree-file-icon.lock { color:var(--red-light); }
+    .tree-file-name { flex:1; }
+    .tree-file-type { font-size:0.46rem; color:var(--text-faint); flex-shrink:0; }
+
+    /* year dividers */
+    .tree-year {
+      font-size:0.52rem; letter-spacing:0.14em; color:var(--text-faint);
+      text-transform:uppercase; padding:10px 10px 4px;
+      border-top:1px solid var(--border);
+      margin-top:4px;
+    }
+    .tree-year:first-child { border-top:none; margin-top:0; }
+
+    /* ── FILE VIEWER (right panel) ── */
+    #file-viewer {
+      background:var(--bg3);
+      overflow-y:auto;
+      display:flex; flex-direction:column;
+    }
+    #file-viewer::-webkit-scrollbar { width:4px; }
+    #file-viewer::-webkit-scrollbar-track { background:var(--bg); }
+    #file-viewer::-webkit-scrollbar-thumb { background:var(--border2); }
+
+    .viewer-titlebar {
+      background:var(--navy);
+      border-bottom:1px solid var(--border2);
+      padding:5px 14px;
+      display:flex; align-items:center; gap:10px;
+      font-size:0.56rem; letter-spacing:0.08em; color:var(--text-dim);
+      position:sticky; top:0; z-index:2; flex-shrink:0;
+    }
+    #viewer-path { color:var(--gold-dim); flex:1; }
+    #viewer-meta { color:var(--text-faint); font-size:0.5rem; }
+
+    #viewer-content {
+      padding:24px 28px;
+      flex:1;
+    }
+
+    /* Empty state */
+    .viewer-empty {
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      height:100%; color:var(--text-faint); text-align:center; gap:12px;
+      padding:40px;
+    }
+    .viewer-empty-icon { font-size:2.5rem; opacity:0.3; }
+    .viewer-empty-text { font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; line-height:2; }
+
+    /* File header */
+    .file-header {
+      border-bottom:1px solid var(--border); padding-bottom:16px; margin-bottom:20px;
+    }
+    .file-case-id {
+      font-size:0.52rem; letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--gold-dim); margin-bottom:6px;
+    }
+    .file-title { font-family:var(--serif); font-size:1.3rem; color:var(--white); margin-bottom:8px; line-height:1.2; }
+    .file-meta-row {
+      display:flex; flex-wrap:wrap; gap:16px; margin-top:10px;
+    }
+    .file-meta-item { font-size:0.54rem; color:var(--text-dim); letter-spacing:0.06em; }
+    .file-meta-item strong { color:var(--text); }
+
+    /* Status badges */
+    .badge {
+      display:inline-block; font-size:0.48rem; letter-spacing:0.1em;
+      text-transform:uppercase; padding:2px 7px; border:1px solid;
+      margin-left:10px; vertical-align:middle;
+    }
+    .badge-cold { color:#6688aa; border-color:#334455; background:rgba(40,60,80,0.3); }
+    .badge-open { color:#66ccff; border-color:#224466; background:rgba(30,60,90,0.3); }
+    .badge-active { color:#ff6666; border-color:#882222; background:rgba(80,20,20,0.3); }
+    .badge-closed { color:var(--text-faint); border-color:var(--border); background:rgba(20,20,20,0.3); }
+    .badge-unlocked { color:#44aa44; border-color:#226622; background:rgba(20,50,20,0.3); }
+
+    /* File body */
+    .file-section { margin-bottom:20px; }
+    .file-section-title {
+      font-size:0.52rem; letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--gold-dim); border-bottom:1px solid var(--border);
+      padding-bottom:5px; margin-bottom:10px;
+    }
+    .file-body {
+      font-family:var(--body); font-size:0.92rem; color:var(--text);
+      line-height:1.7;
+    }
+    .file-body p { margin-bottom:10px; }
+    .file-body .redacted {
+      background:#111; color:#111; border-radius:2px;
+      user-select:none; display:inline-block; min-width:80px;
+    }
+
+    /* Evidence list */
+    .evidence-list { list-style:none; }
+    .evidence-list li {
+      border-bottom:1px solid var(--border);
+      padding:8px 0; display:flex; gap:12px; align-items:flex-start;
+      font-size:0.8rem; color:var(--text);
+    }
+    .evidence-list li:last-child { border-bottom:none; }
+    .ev-id { font-family:var(--mono); font-size:0.58rem; color:var(--gold-dim); flex-shrink:0; padding-top:2px; }
+    .ev-desc { flex:1; font-family:var(--body); line-height:1.5; }
+    .ev-status { font-size:0.5rem; letter-spacing:0.08em; color:var(--text-dim); flex-shrink:0; padding-top:3px; }
+
+    /* Cipher block */
+    .cipher-block {
+      background:var(--bg); border:1px solid var(--border2);
+      padding:16px 18px; margin:14px 0; font-family:var(--mono);
+    }
+    .cipher-label { font-size:0.5rem; color:var(--text-faint); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .cipher-text { font-size:1.1rem; color:var(--gold); letter-spacing:0.2em; word-break:break-all; line-height:2; }
+    .cipher-note { font-size:0.54rem; color:var(--text-dim); margin-top:8px; font-style:italic; }
+
+    /* Lock overlay for locked cases */
+    .locked-overlay {
+      text-align:center; padding:40px 20px;
+    }
+    .lock-icon { font-size:2.5rem; color:var(--red-light); margin-bottom:16px; opacity:0.7; }
+    .lock-title { font-family:var(--serif); font-size:1.1rem; color:var(--text); margin-bottom:8px; }
+    .lock-subtitle { font-size:0.6rem; color:var(--text-dim); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:24px; line-height:2; }
+    .lock-input-row { display:flex; gap:8px; max-width:320px; margin:0 auto; }
+    .lock-input {
+      flex:1; background:var(--bg); border:1px solid var(--border2);
+      color:var(--text); font-family:var(--mono); font-size:0.8rem;
+      padding:8px 10px; letter-spacing:0.1em; outline:none;
+    }
+    .lock-input:focus { border-color:var(--gold-dim); }
+    .lock-input.error { border-color:var(--red-light); }
+    .lock-btn {
+      background:var(--navy); border:1px solid var(--border2);
+      color:var(--gold); font-family:var(--mono); font-size:0.6rem;
+      letter-spacing:0.1em; padding:8px 14px; cursor:pointer;
+      text-transform:uppercase; transition:background 0.15s;
+    }
+    .lock-btn:hover { background:var(--bg4); }
+    .lock-error { font-size:0.54rem; color:var(--red-light); margin-top:8px; min-height:14px; letter-spacing:0.06em; }
+    .lock-hint { font-size:0.5rem; color:var(--text-faint); margin-top:20px; letter-spacing:0.06em; line-height:2; }
+
+    /* Scrollbar archive */
+    #archive-screen { min-height:100vh; }
+
+    /* Status bar */
+    #statusbar {
+      background:var(--navy);
+      border-top:1px solid var(--border);
+      padding:3px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      font-size:0.5rem; color:var(--text-dim); letter-spacing:0.08em;
+      position:fixed; bottom:0; left:0; right:0; z-index:10;
+    }
+    #statusbar-left { display:flex; gap:20px; }
+    #statusbar-right { color:var(--text-faint); }
+  </style>
+</head>
+<body>
+
+<div id="topbar">
+  <div id="topbar-left">&#9888; ACSO RESTRICTED ARCHIVE — AUTHORIZED ACCESS ONLY — UNAUTHORIZED USE IS A FEDERAL OFFENSE</div>
+  <div id="topbar-right">
+    <span class="topbar-blink">&#9608;</span>
+    <span>SESSION ACTIVE</span>
+  </div>
+</div>
+
+<div id="header">
+  <img src="Ashgrove_County_Logo.png" alt="ACSO Seal"/>
+  <div id="header-title">
+    <h1>Ashgrove County Sheriff's Office</h1>
+    <p>Restricted Document Archive &nbsp;&#9474;&nbsp; Internal Use Only &nbsp;&#9474;&nbsp; Case Files &amp; Evidence Records</p>
+  </div>
+  <div id="header-badge">
+    <div>Access Level</div>
+    <div>RESTRICTED</div>
+  </div>
+</div>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div id="login-box">
+    <div class="login-titlebar">
+      <span>ACSO_ARCHIVE_v2.1 — AUTHENTICATION REQUIRED</span>
+      <div class="login-titlebar-dots"><span></span><span></span><span></span></div>
+    </div>
+    <div class="login-body">
+      <div class="login-seal">
+        <img src="Ashgrove_County_Logo.png" alt="ACSO"/>
+      </div>
+      <div class="login-title">Restricted Archive Access</div>
+      <div class="login-subtitle">Ashgrove County Sheriff's Office &nbsp;&#9474;&nbsp; Est. 1891</div>
+      <hr class="login-divider"/>
+      <span class="login-field-label">Archive Access Code</span>
+      <input type="password" id="password-input" placeholder="Enter access code" autocomplete="off" spellcheck="false"/>
+      <button id="login-btn" onclick="attemptLogin()">Authenticate &rarr;</button>
+      <div id="login-error">&nbsp;</div>
+      <hr class="login-divider"/>
+      <div class="login-footer">
+        This system is the property of the Ashgrove County Sheriff's Office.<br/>
+        Unauthorized access is prohibited and subject to prosecution.<br/>
+        All activity is logged. &nbsp;&#9474;&nbsp; ACSO IT Dept. &nbsp;&#9474;&nbsp; ext. 9
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SCREEN -->
+<div id="archive-screen">
+  <div id="archive-topbar">
+    <div>ACSO_ARCHIVE &nbsp;&#9474;&nbsp; <span>ACCESS GRANTED</span> &nbsp;&#9474;&nbsp; SESSION: <span id="session-id">——</span></div>
+    <div id="archive-clock">——</div>
+  </div>
+
+  <div id="archive-layout">
+
+    <!-- FILE TREE -->
+    <div id="file-tree">
+      <div class="tree-titlebar">&#128193; Case File Directory</div>
+      <div class="tree-root">
+
+        <div class="tree-year">&#9632; 1971 — 1989</div>
+        <div class="tree-folder" id="folder-pre90">
+          <div class="tree-folder-label" onclick="toggleFolder('pre90')">
+            <span class="tree-folder-icon" id="icon-pre90">&#9654;</span>
+            <span class="tree-folder-name">General Records (1971–89)</span>
+            <span class="tree-folder-count">12 files</span>
+          </div>
+          <div class="tree-children" id="children-pre90">
+            <div class="tree-file" onclick="openFile('patrol-logs-71')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Patrol Logs — Annual Summary</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('incident-73')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #73-0012</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('incident-79')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #79-0047</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('budget-82')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dept. Budget Summary 1982</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('dispatch-85')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Q3 1985</span><span class="tree-file-type">LOG</span></div>
+          </div>
+        </div>
+
+        <div class="tree-year">&#9632; 1990 — 1996</div>
+        <div class="tree-folder" id="folder-90s-early">
+          <div class="tree-folder-label" onclick="toggleFolder('90s-early')">
+            <span class="tree-folder-icon" id="icon-90s-early">&#9654;</span>
+            <span class="tree-folder-name">General Records (1990–96)</span>
+            <span class="tree-folder-count">9 files</span>
+          </div>
+          <div class="tree-children" id="children-90s-early">
+            <div class="tree-file" onclick="openFile('incident-91-vandalism')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #91-0203</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('incident-93-vehicle')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #93-0118</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('memo-94-staffing')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Internal Memo — Staffing 1994</span><span class="tree-file-type">MEM</span></div>
+            <div class="tree-file" onclick="openFile('patrol-96')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Patrol Summary — 1996</span><span class="tree-file-type">TXT</span></div>
+          </div>
+        </div>
+
+        <div class="tree-year">&#9632; 1997</div>
+
+        <div class="tree-folder" id="folder-97-general">
+          <div class="tree-folder-label" onclick="toggleFolder('97-general')">
+            <span class="tree-folder-icon" id="icon-97-general">&#9654;</span>
+            <span class="tree-folder-name">General Records — 1997</span>
+            <span class="tree-folder-count">6 files</span>
+          </div>
+          <div class="tree-children" id="children-97-general">
+            <div class="tree-file" onclick="openFile('dispatch-97-q1')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Q1 1997</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file" onclick="openFile('dispatch-97-q2')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Q2 1997</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file" onclick="openFile('dispatch-97-q3')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Q3 1997</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file" onclick="openFile('dispatch-97-q4')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Q4 1997</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file" onclick="openFile('memo-97-personnel')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Personnel Memo — Oct 1997</span><span class="tree-file-type">MEM</span></div>
+          </div>
+        </div>
+
+        <div class="tree-folder" id="folder-97-0388">
+          <div class="tree-folder-label" onclick="toggleFolder('97-0388')">
+            <span class="tree-folder-icon" id="icon-97-0388">&#9654;</span>
+            <span class="tree-folder-name">Case #97-0388 — Melford</span>
+            <span class="tree-folder-count">4 files</span>
+          </div>
+          <div class="tree-children" id="children-97-0388">
+            <div class="tree-file" onclick="openFile('97-0388-report')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Initial Incident Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('97-0388-evidence')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Evidence Log</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0388-photo','97-0388')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Scene Photographs</span><span class="tree-file-type">IMG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0388-notes','97-0388')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Investigator Notes</span><span class="tree-file-type">DOC</span></div>
+          </div>
+        </div>
+
+        <div class="tree-folder" id="folder-97-0441">
+          <div class="tree-folder-label" onclick="toggleFolder('97-0441')">
+            <span class="tree-folder-icon" id="icon-97-0441">&#9654;</span>
+            <span class="tree-folder-name">Case #97-0441 — [REDACTED]</span>
+            <span class="tree-folder-count">6 files</span>
+          </div>
+          <div class="tree-children" id="children-97-0441">
+            <div class="tree-file" onclick="openFile('97-0441-report')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Initial Incident Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('97-0441-evidence')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Evidence Log — Item List</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0441-cipher','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Cipher Document (Item 2)</span><span class="tree-file-type">IMG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0441-letter','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Envelope &amp; Letter (Item 1)</span><span class="tree-file-type">IMG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0441-photo','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">B&amp;W Photograph (Item 3)</span><span class="tree-file-type">IMG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0441-analysis','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Cipher Analysis — Det. Notes</span><span class="tree-file-type">DOC</span></div>
+          </div>
+        </div>
+
+        <div class="tree-folder" id="folder-97-0509">
+          <div class="tree-folder-label" onclick="toggleFolder('97-0509')">
+            <span class="tree-folder-icon" id="icon-97-0509">&#9654;</span>
+            <span class="tree-folder-name">Case #97-0509 — [REDACTED]</span>
+            <span class="tree-folder-count">3 files</span>
+          </div>
+          <div class="tree-children" id="children-97-0509">
+            <div class="tree-file" onclick="openFile('97-0509-report')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Initial Incident Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0509-evidence','97-0509')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Evidence Log</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0509-notes','97-0509')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Field Notes</span><span class="tree-file-type">DOC</span></div>
+          </div>
+        </div>
+
+        <div class="tree-folder" id="folder-97-0591">
+          <div class="tree-folder-label" onclick="toggleFolder('97-0591')">
+            <span class="tree-folder-icon" id="icon-97-0591">&#9654;</span>
+            <span class="tree-folder-name">Case #97-0591 — Det. [REDACTED]</span>
+            <span class="tree-folder-count">5 files</span>
+          </div>
+          <div class="tree-children" id="children-97-0591">
+            <div class="tree-file" onclick="openFile('97-0591-report')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Missing Person Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('97-0591-vehicle')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Vehicle Recovery Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0591-lastlog','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Last Known Activity Log</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0591-personal','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Personal Effects Inventory</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0591-casebook','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Case Notebook — Partial</span><span class="tree-file-type">IMG</span></div>
+          </div>
+        </div>
+
+        <div class="tree-year">&#9632; 1998</div>
+
+        <div class="tree-folder" id="folder-98-0012">
+          <div class="tree-folder-label" onclick="toggleFolder('98-0012')">
+            <span class="tree-folder-icon" id="icon-98-0012">&#9654;</span>
+            <span class="tree-folder-name">Case #98-0012 — [REDACTED]</span>
+            <span class="tree-folder-count">3 files</span>
+          </div>
+          <div class="tree-children" id="children-98-0012">
+            <div class="tree-file" onclick="openFile('98-0012-report')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Initial Incident Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('98-0012-evidence','98-0012')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Evidence Log</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file locked" onclick="openLocked('98-0012-notes','98-0012')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Investigator Notes</span><span class="tree-file-type">DOC</span></div>
+          </div>
+        </div>
+
+        <div class="tree-folder" id="folder-98-0047">
+          <div class="tree-folder-label" onclick="toggleFolder('98-0047')">
+            <span class="tree-folder-icon" id="icon-98-0047">&#9654;</span>
+            <span class="tree-folder-name">Case #98-0047 — [REDACTED]</span>
+            <span class="tree-folder-count">2 files</span>
+          </div>
+          <div class="tree-children" id="children-98-0047">
+            <div class="tree-file" onclick="openFile('98-0047-report')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Initial Incident Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('98-0047-evidence','98-0047')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Evidence Log</span><span class="tree-file-type">LOG</span></div>
+          </div>
+        </div>
+
+        <div class="tree-folder" id="folder-98-general">
+          <div class="tree-folder-label" onclick="toggleFolder('98-general')">
+            <span class="tree-folder-icon" id="icon-98-general">&#9654;</span>
+            <span class="tree-folder-name">General Records — 1998</span>
+            <span class="tree-folder-count">5 files</span>
+          </div>
+          <div class="tree-children" id="children-98-general">
+            <div class="tree-file" onclick="openFile('memo-98-closure')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Case Closure Memo — April 1998</span><span class="tree-file-type">MEM</span></div>
+            <div class="tree-file" onclick="openFile('dispatch-98-q1')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Q1 1998</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file" onclick="openFile('budget-98')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dept. Budget Summary 1998</span><span class="tree-file-type">TXT</span></div>
+          </div>
+        </div>
+
+        <div class="tree-year">&#9632; 1999 — 2025</div>
+
+        <div class="tree-folder" id="folder-recent-general">
+          <div class="tree-folder-label" onclick="toggleFolder('recent-general')">
+            <span class="tree-folder-icon" id="icon-recent-general">&#9654;</span>
+            <span class="tree-folder-name">General Records (1999–2025)</span>
+            <span class="tree-folder-count">34 files</span>
+          </div>
+          <div class="tree-children" id="children-recent-general">
+            <div class="tree-file" onclick="openFile('annual-2000')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2000</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2005')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2005</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2010')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2010</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2015')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2015</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2020')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2020</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('calloway-transition')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Sheriff Transition Memo — 2026</span><span class="tree-file-type">MEM</span></div>
+          </div>
+        </div>
+
+        <div class="tree-year">&#9632; 2026</div>
+
+        <div class="tree-folder" id="folder-26-0031">
+          <div class="tree-folder-label" onclick="toggleFolder('26-0031')">
+            <span class="tree-folder-icon" id="icon-26-0031">&#9654;</span>
+            <span class="tree-folder-name">Case #26-0031 — Alderman</span>
+            <span class="tree-folder-count">4 files</span>
+          </div>
+          <div class="tree-children" id="children-26-0031">
+            <div class="tree-file" onclick="openFile('26-0031-report')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Missing Person Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('26-0031-vehicle')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Vehicle — BOLO Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('26-0031-research','26-0031')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Research Notes — Recovered</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('26-0031-phone','26-0031')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Phone Records — Partial</span><span class="tree-file-type">LOG</span></div>
+          </div>
+        </div>
+
+        <div class="tree-folder" id="folder-26-archive">
+          <div class="tree-folder-label" onclick="toggleFolder('26-archive')">
+            <span class="tree-folder-icon" id="icon-26-archive">&#9654;</span>
+            <span class="tree-folder-name">Archive Project — 2026</span>
+            <span class="tree-folder-count">3 files</span>
+          </div>
+          <div class="tree-children" id="children-26-archive">
+            <div class="tree-file" onclick="openFile('archive-project-memo')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Project Scope Memo</span><span class="tree-file-type">MEM</span></div>
+            <div class="tree-file" onclick="openFile('archive-evidence-recovery')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Evidence Box Recovery Report</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('archive-colton-notes','26-archive')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Colton Internal Notes</span><span class="tree-file-type">DOC</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FILE VIEWER -->
+    <div id="file-viewer">
+      <div class="viewer-titlebar">
+        <span>&#128193;</span>
+        <span id="viewer-path">No file selected</span>
+        <span id="viewer-meta">&nbsp;</span>
+      </div>
+      <div id="viewer-content">
+        <div class="viewer-empty">
+          <div class="viewer-empty-icon">&#128193;</div>
+          <div class="viewer-empty-text">
+            Select a file from the directory to view its contents.<br/>
+            &#9632; Unlocked files are available for immediate access.<br/>
+            &#128274; Locked files require a case-specific access code.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="statusbar">
+    <div id="statusbar-left">
+      <span id="sb-user">USER: B.COLTON</span>
+      <span id="sb-file">FILE: —</span>
+      <span id="sb-count">FILES: 0 / 67 UNLOCKED</span>
+    </div>
+    <div id="statusbar-right">ACSO ARCHIVE SYSTEM v2.1 &nbsp;&#9474;&nbsp; &copy; 1998 ACSO IT DEPT.</div>
+  </div>
+</div>
+
+<script>
+const GLOBAL_PASS = 'ACSOWYO1891';
+
+const CASE_PASSWORDS = {
+  '97-0388': 'MELFORD97',
+  '97-0441': 'UNLOCKED441',
+  '97-0509': 'RT7ASHGROVE',
+  '97-0591': 'DET0591',
+  '98-0012': 'JAN1998',
+  '98-0047': 'MAR1998',
+  '26-0031': 'ALDERMAN26',
+  '26-archive': 'COLTON2026',
+};
+
+const unlockedCases = new Set();
+
+const FILES = {
+  'patrol-logs-71': {
+    title: 'Patrol Logs — Annual Summary',
+    case: 'General Records (1971–1989)',
+    date: 'December 31, 1971',
+    author: 'Sgt. R. Mossler',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Annual patrol summary for fiscal year 1971. Total dispatched calls: 312. No major incidents recorded. Routine traffic stops account for 67% of logged activity. One animal control escalation in September — resolved without incident.</p><p>Staffing remained at 6 sworn deputies throughout the year. No personnel changes. Mileage report attached (see physical file).</p></div></div>`
+  },
+  'incident-73': {
+    title: 'Incident Report #73-0012',
+    case: 'General Records (1971–1989)',
+    date: 'March 4, 1973',
+    author: 'Dep. H. Crane',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Reported trespassing at the old Mossler grain storage facility on Route 4. Two juveniles found on premises after hours. No property damage. Juveniles released to guardians. No charges filed.</p></div></div>`
+  },
+  'incident-79': {
+    title: 'Incident Report #79-0047',
+    case: 'General Records (1971–1989)',
+    date: 'July 19, 1979',
+    author: 'Dep. T. Wills',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Vehicle collision at the intersection of County Road 4 and Route 12. Two vehicles involved. Minor injuries. Wyoming Highway Patrol notified and assumed jurisdiction. ACSO assisted with traffic control.</p></div></div>`
+  },
+  'budget-82': {
+    title: 'Department Budget Summary — 1982',
+    case: 'General Records (1971–1989)',
+    date: 'January 14, 1983',
+    author: 'Sheriff E. Mossler Jr.',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Budget Overview</div><div class="file-body"><p>Total departmental budget for fiscal year 1982: $214,400. Personnel costs accounted for 78% of expenditures. Vehicle maintenance and fuel: $18,200. Equipment: $9,800. Facility upkeep: $4,600. Remaining balance: $3,100 carried forward.</p></div></div>`
+  },
+  'dispatch-85': {
+    title: 'Dispatch Log — Q3 1985',
+    case: 'General Records (1971–1989)',
+    date: 'October 1, 1985',
+    author: 'Dispatch — ACSO',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Quarterly Log Summary</div><div class="file-body"><p>July–September 1985. Total calls received: 87. Dispatched units: 74. Notable incidents: 2 livestock escapes (resolved), 1 domestic disturbance (resolved, no charges), 1 report of suspicious vehicle on Route 12 (unresolved — no further contact).</p></div></div>`
+  },
+  'incident-91-vandalism': {
+    title: 'Incident Report #91-0203',
+    case: 'General Records (1990–1996)',
+    date: 'August 22, 1991',
+    author: 'Dep. C. Aldridge',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Vandalism reported at the Ashgrove Township community board. Graffiti on exterior wall. No suspects identified. Property cleaned at county expense. Case closed.</p></div></div>`
+  },
+  'incident-93-vehicle': {
+    title: 'Incident Report #93-0118',
+    case: 'General Records (1990–1996)',
+    date: 'April 7, 1993',
+    author: 'Dep. R. Vance',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Abandoned vehicle reported on Route 12, approximately 4 miles east of Ashgrove Township. 1987 Ford pickup, no plates. Vehicle towed by Ashgrove County impound. No owner identified within 30-day window. Vehicle disposed per county ordinance.</p></div></div>`
+  },
+  'memo-94-staffing': {
+    title: 'Internal Memo — Staffing Review 1994',
+    case: 'General Records (1990–1996)',
+    date: 'February 3, 1994',
+    author: 'Sheriff R. Calloway',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: All sworn personnel<br/>FROM: Sheriff R. Calloway<br/>RE: Staffing levels and new hire timeline</p><p>Effective March 1, 1994, the department will be bringing on two additional sworn deputies to bring our total to 10. Training will be coordinated with Wyoming Law Enforcement Academy. Further details to follow.</p></div></div>`
+  },
+  'patrol-96': {
+    title: 'Patrol Summary — 1996',
+    case: 'General Records (1990–1996)',
+    date: 'January 8, 1997',
+    author: 'Chief Dep. M. Haines',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>1996 patrol activity summary. Total calls: 641. Average response time: 18 minutes. Patrol coverage expanded to include northern Route 7 corridor following county boundary adjustment. No major unsolved cases. Department operating at full staffing capacity (10 deputies).</p></div></div>`
+  },
+  'dispatch-97-q1': {
+    title: 'Dispatch Log — Q1 1997',
+    case: 'General Records — 1997',
+    date: 'April 1, 1997',
+    author: 'Dispatch — ACSO',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Quarterly Log Summary</div><div class="file-body"><p>January–March 1997. Total calls: 94. Routine activity. Three traffic incidents on Route 12. One livestock escape near County Road 8. No major crimes reported.</p></div></div>`
+  },
+  'dispatch-97-q2': {
+    title: 'Dispatch Log — Q2 1997',
+    case: 'General Records — 1997',
+    date: 'July 1, 1997',
+    author: 'Dispatch — ACSO',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Quarterly Log Summary</div><div class="file-body"><p>April–June 1997. Total calls: 101. Increased activity on Route 7 corridor. One break-in at county storage facility — no suspect identified. Two domestic disturbance calls — both resolved on scene.</p></div></div>`
+  },
+  'dispatch-97-q3': {
+    title: 'Dispatch Log — Q3 1997',
+    case: 'General Records — 1997',
+    date: 'October 1, 1997',
+    author: 'Dispatch — ACSO',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Quarterly Log Summary</div><div class="file-body"><p>July–September 1997. Total calls: 98. Notable: First contact with <span class="redacted">████████████████</span> regarding unidentified individual in Ashgrove Township area. Report filed. No follow-up at time of logging. Flagged for investigative review.</p></div></div>`
+  },
+  'dispatch-97-q4': {
+    title: 'Dispatch Log — Q4 1997',
+    case: 'General Records — 1997',
+    date: 'January 5, 1998',
+    author: 'Dispatch — ACSO',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Quarterly Log Summary</div><div class="file-body"><p>October–December 1997. Total calls: 143 — significant increase from prior quarters. Missing persons reports: 3 (see Cases #97-0388, #97-0441, #97-0509). Detective <span class="redacted">████████████████</span> went unreachable December 9. All active investigations transferred to cold case status pending further review.</p><p style="color:var(--red-light); font-family:var(--mono); font-size:0.7rem; margin-top:12px;">[ NOTE: Remainder of Q4 log sealed per Sheriff Calloway directive — 01/06/1998 ]</p></div></div>`
+  },
+  'memo-97-personnel': {
+    title: 'Personnel Memo — October 1997',
+    case: 'General Records — 1997',
+    date: 'October 2, 1997',
+    author: 'Sheriff R. Calloway',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: Det. <span class="redacted">████████████████</span><br/>FROM: Sheriff R. Calloway<br/>RE: Active case assignments</p><p>You are hereby assigned as lead investigator on Case #97-0388, reported October 22. Given the circumstances of the vehicle recovery, I want eyes on this before the trail goes cold. Keep me updated directly. Do not route through standard reporting chain until we have a clearer picture.</p></div></div>`
+  },
+  '97-0388-report': {
+    title: 'Initial Incident Report — Case #97-0388',
+    case: 'Case #97-0388 — Melford',
+    date: 'October 22, 1997',
+    author: 'Dep. C. Aldridge',
+    status: 'cold',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>At approximately 07:40 on October 22, 1997, a vehicle registered to Gary Raymond Melford, 41, of Ashgrove Township, was located unoccupied on Rural Route 4, approximately 2.1 miles east of the township boundary. Engine was cold. No signs of struggle in or around the vehicle. Driver's door was unlocked. Personal effects (jacket, wallet, keys) found on passenger seat.</p><p>Mr. Melford was last seen by a neighbor at approximately 18:30 on October 21. He had mentioned he was "heading out for a bit." No further contact was made.</p></div></div>
+    <div class="file-section"><div class="file-section-title">Reporting Officer Notes</div><div class="file-body"><p>Scene secured at 08:15. No tire tracks indicating a second vehicle. No footprints visible due to overnight wind. Vehicle towed to ACSO impound. Case assigned to Det. <span class="redacted">████████████████</span> per Sheriff Calloway directive.</p></div></div>`
+  },
+  '97-0388-evidence': {
+    title: 'Evidence Log — Case #97-0388',
+    case: 'Case #97-0388 — Melford',
+    date: 'October 23, 1997',
+    author: 'Det. [REDACTED]',
+    status: 'cold',
+    body: `<div class="file-section"><div class="file-section-title">Evidence Items</div><ul class="evidence-list">
+      <li><span class="ev-id">EV-001</span><span class="ev-desc">1994 Chevrolet pickup, blue, plates WY-1142-F. Towed to ACSO impound. Processed for prints — partial on steering wheel, inconclusive.</span><span class="ev-status">Impound</span></li>
+      <li><span class="ev-id">EV-002</span><span class="ev-desc">Brown canvas jacket, men's XL. Found on passenger seat. No foreign fibers. Wallet in left pocket — cash, ID, credit cards all present.</span><span class="ev-status">Stored</span></li>
+      <li><span class="ev-id">EV-003</span><span class="ev-desc">Set of keys — house, vehicle, one unidentified key (small, brass, no markings).</span><span class="ev-status">Stored</span></li>
+    </ul></div>
+    <div class="file-section"><div class="file-section-title">Notes</div><div class="file-body"><p>EV-003 unidentified key — no match found to Melford residence or vehicle. Purpose unknown. Cross-reference with Case #97-0441 pending.</p></div></div>`
+  },
+  '97-0441-report': {
+    title: 'Initial Incident Report — Case #97-0441',
+    case: 'Case #97-0441 — [REDACTED]',
+    date: 'October 14, 1997',
+    author: 'Dep. T. Wills',
+    status: 'open',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>At 09:15 on October 14, 1997, a welfare check was requested by a family member for <span class="redacted">████████████████</span>, residing at <span class="redacted">████████████████</span>, Ashgrove Township. Responding deputy found front door unlocked. No occupant. No signs of forced entry. No signs of struggle.</p><p>Personal items, including coat, bag, and vehicle (parked in driveway), were all present. Subject had not reported to work that morning. Last confirmed contact: neighbor observed subject entering residence at approximately 20:45 on October 13.</p></div></div>
+    <div class="file-section"><div class="file-section-title">Notable</div><div class="file-body"><p>An envelope was found on the kitchen table, unsealed. Contents were recovered and logged as evidence. See Evidence Log for details. Case assigned to Det. <span class="redacted">████████████████</span> for follow-up.</p><p style="color:var(--gold-dim); font-family:var(--mono); font-size:0.7rem; margin-top:12px;">[ CASE REOPENED — Feb 28, 2026 — Det. S. Dunmore ]</p></div></div>`
+  },
+  '97-0441-evidence': {
+    title: 'Evidence Log — Case #97-0441',
+    case: 'Case #97-0441 — [REDACTED]',
+    date: 'October 14, 1997',
+    author: 'Det. [REDACTED]',
+    status: 'open',
+    body: `<div class="file-section"><div class="file-section-title">Evidence Items</div><ul class="evidence-list">
+      <li><span class="ev-id">EV-001</span><span class="ev-desc">Envelope, unsealed, white, standard size. Found on kitchen table. No fingerprints. No return address. No postage — hand-delivered.</span><span class="ev-status">Stored</span></li>
+      <li><span class="ev-id">EV-002</span><span class="ev-desc">Single sheet of paper, folded, contained in EV-001. Hand-drawn symbols, approximately 22 characters. Ink: black. Not immediately identifiable. Forwarded for analysis.</span><span class="ev-status">Analysis</span></li>
+      <li><span class="ev-id">EV-003</span><span class="ev-desc">Photograph, B&W, 3.5"x5". Subject: individual, face partially obscured. No markings on reverse. No identifiable location in background.</span><span class="ev-status">Stored</span></li>
+    </ul></div>
+    <div class="file-section"><div class="file-section-title">Investigator Notes</div><div class="file-body"><p>EV-002 cipher document: unlike any known shorthand or commercial cipher. Possibly custom. 22 characters — could be a key, a name, or a message. No matches in FBI cipher index (contacted Oct 17, response received Nov 3 — inconclusive).</p><p>EV-001 envelope showed no moisture damage consistent with postal routing. Document was hand-delivered, likely same day or night before disappearance.</p></div></div>`
+  },
+  '97-0509-report': {
+    title: 'Initial Incident Report — Case #97-0509',
+    case: 'Case #97-0509 — [REDACTED]',
+    date: 'November 30, 1997',
+    author: 'Dep. C. Aldridge',
+    status: 'cold',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p><span class="redacted">████████████████</span> was reported missing by a family member on November 30, 1997, after failing to return from a day hike on the Route 7 trail network. Vehicle was located in the Route 7 trailhead parking area. Hiking gear (pack, poles) not found. No signs of accident at the trailhead.</p><p>Search and Rescue deployed November 30 through December 2. Trail network covered in full. No trace found. Case transferred to ACSO investigative division.</p></div></div>
+    <div class="file-section"><div class="file-section-title">Notes</div><div class="file-body"><p>Third missing persons report in six weeks within Ashgrove County. Sheriff Calloway has requested Wyoming DCI consultation. Awaiting response. Det. <span class="redacted">████████████████</span> assigned as lead.</p></div></div>`
+  },
+  '97-0591-report': {
+    title: 'Missing Person Report — Case #97-0591',
+    case: 'Case #97-0591 — Det. [REDACTED]',
+    date: 'December 10, 1997',
+    author: 'Sheriff R. Calloway',
+    status: 'cold',
+    body: `<div class="file-section"><div class="file-section-title">Report</div><div class="file-body"><p>Det. <span class="redacted">████████████████</span>, 38, Male, ACSO Investigative Division, failed to report for duty on December 9, 1997 and did not respond to radio or telephone contact throughout the day. Family contact made at 18:30 — family had not heard from subject since morning of December 8.</p><p>This report filed December 10 by Sheriff Calloway personally. Standard missing person protocol initiated. Given subject's active investigative role, Wyoming DCI immediately notified.</p></div></div>`
+  },
+  '97-0591-vehicle': {
+    title: 'Vehicle Recovery Report — Case #97-0591',
+    case: 'Case #97-0591 — Det. [REDACTED]',
+    date: 'December 11, 1997',
+    author: 'Dep. R. Vance',
+    status: 'cold',
+    body: `<div class="file-section"><div class="file-section-title">Recovery Summary</div><div class="file-body"><p>At 11:20 on December 11, 1997, ACSO Unit 3 located the departmental vehicle assigned to Det. <span class="redacted">████████████████</span> on Rural Route 12, approximately 2 miles east of the ACSO field office. Engine cold. Doors unlocked. Service weapon still in glove compartment, secured.</p><p>No personal items other than standard-issue equipment. Case notebook not recovered. Radio present and functional.</p></div></div>
+    <div class="file-section"><div class="file-section-title">Notes</div><div class="file-body"><p>Location of vehicle recovery — Route 12 east of field office — places subject in the same general corridor as the active missing persons investigations. DCI has been notified. Scene processed. No prints other than subject's own.</p></div></div>`
+  },
+  '98-0012-report': {
+    title: 'Initial Incident Report — Case #98-0012',
+    case: 'Case #98-0012 — [REDACTED]',
+    date: 'January 9, 1998',
+    author: 'Dep. T. Wills',
+    status: 'cold',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p><span class="redacted">████████████████</span> was reported missing January 9, 1998 by a neighbor. Subject had not been seen for approximately 48 hours. Residence was found unlocked. No signs of struggle. No forced entry. Vehicle present in driveway.</p><p>Pattern consistent with prior missing persons cases in county. Case immediately assigned to senior deputy pending DCI consultation.</p></div></div>`
+  },
+  '98-0047-report': {
+    title: 'Initial Incident Report — Case #98-0047',
+    case: 'Case #98-0047 — [REDACTED]',
+    date: 'March 3, 1998',
+    author: 'Dep. C. Aldridge',
+    status: 'cold',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Fifth missing persons report in the series. <span class="redacted">████████████████</span> last seen March 2, 1998. No contact since. Residence found in normal state — no signs of disturbance. Pattern: no forced entry, vehicle present, personal effects left behind.</p><p>Wyoming DCI has assumed co-jurisdiction. All further case activity to be coordinated with DCI Agent <span class="redacted">████████████████</span>.</p></div></div>`
+  },
+  'memo-98-closure': {
+    title: 'Case Closure Memo — April 1998',
+    case: 'General Records — 1998',
+    date: 'April 14, 1998',
+    author: 'Sheriff R. Calloway',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: All personnel<br/>FROM: Sheriff R. Calloway<br/>RE: 1997–1998 Missing Persons Series — Case Status Update</p><p>After extensive coordination with Wyoming DCI and the FBI field office in Casper, the decision has been made to formally archive Cases #97-0388, #97-0441, #97-0509, #97-0591, #98-0012, and #98-0047 as unresolved cold cases. Active investigation is being suspended pending new evidence or leads.</p><p>All physical evidence has been catalogued and placed in secure storage. Access requires Sheriff authorization. These files are to be treated as sealed.</p><p style="color:var(--red-light); font-family:var(--mono); font-size:0.7rem; margin-top:12px;">[ SEAL LIFTED — Feb 28, 2026 — Sheriff D. Hargrove ]</p></div></div>`
+  },
+  'dispatch-98-q1': {
+    title: 'Dispatch Log — Q1 1998',
+    case: 'General Records — 1998',
+    date: 'April 1, 1998',
+    author: 'Dispatch — ACSO',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>January–March 1998. Total calls: 89. Activity significantly reduced from Q4 1997. One additional missing persons report filed (Case #98-0047, March 3). Remainder of quarter: routine patrol activity.</p></div></div>`
+  },
+  'budget-98': {
+    title: 'Department Budget Summary — 1998',
+    case: 'General Records — 1998',
+    date: 'January 20, 1999',
+    author: 'Sheriff R. Calloway',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Total departmental budget for fiscal year 1998: $381,200. Significant increase from prior years attributable to DCI coordination costs, overtime during missing persons investigations, and legal consultation. Personnel costs: 71%. Investigation-related costs: 14%.</p></div></div>`
+  },
+  'annual-2000': { title: 'Annual Report — 2000', case: 'General Records (1999–2025)', date: 'January 2001', author: 'Sheriff R. Calloway', status: 'closed', body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. No major incidents. Department operating at 11 sworn deputies. Budget within projections.</p></div></div>` },
+  'annual-2005': { title: 'Annual Report — 2005', case: 'General Records (1999–2025)', date: 'January 2006', author: 'Sheriff R. Calloway', status: 'closed', body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. Headquarters renovation completed. Staff at 12 deputies. No significant incidents.</p></div></div>` },
+  'annual-2010': { title: 'Annual Report — 2010', case: 'General Records (1999–2025)', date: 'January 2011', author: 'Sheriff R. Calloway', status: 'closed', body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. Fleet updated — 6 new patrol vehicles. Staff at 13 deputies. No significant incidents.</p></div></div>` },
+  'annual-2015': { title: 'Annual Report — 2015', case: 'General Records (1999–2025)', date: 'January 2016', author: 'Sheriff R. Calloway', status: 'closed', body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. Staff at full complement (14 deputies). Budget increase approved by county. No significant incidents.</p></div></div>` },
+  'annual-2020': { title: 'Annual Report — 2020', case: 'General Records (1999–2025)', date: 'January 2021', author: 'Sheriff R. Calloway', status: 'closed', body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. Pandemic protocols in effect Q2–Q4. Reduced patrol activity. No significant incidents. Sheriff Calloway announces intention to retire in 2026.</p></div></div>` },
+  'calloway-transition': {
+    title: 'Sheriff Transition Memo — January 2026',
+    case: 'General Records (1999–2025)',
+    date: 'January 3, 2026',
+    author: 'Sheriff R. Calloway',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: Undersheriff D. Hargrove<br/>FROM: Sheriff R. Calloway<br/>RE: Transition of duties</p><p>Dana — the department is in good hands. I want to flag one thing before I go. The archive digitization project Ben is running is going to surface some old material from 97–98. I never felt right about how those cases were closed. If something comes up, follow it. Don't let it get buried again.</p><p>Good luck. R.C.</p></div></div>`
+  },
+  '26-0031-report': {
+    title: 'Missing Person Report — Case #26-0031',
+    case: 'Case #26-0031 — Alderman',
+    date: 'February 28, 2026',
+    author: 'Dep. M. Trellis',
+    status: 'active',
+    body: `<div class="file-section"><div class="file-section-title">Report</div><div class="file-body"><p>Thomas Raymond Alderman, 34, of Ashgrove Township, reported missing February 28, 2026 at 23:14 by next of kin. Last seen evening of February 28, downtown Ashgrove, vicinity of Main Street and Route 12. Dark green canvas jacket, blue jeans, brown work boots. 5'11", 185 lbs, brown hair, brown eyes.</p><p>Mr. Alderman's employer confirmed he failed to report to work Monday March 2 without contact. Family states subject had been researching historical ACSO records in the weeks prior to disappearance and had spoken about "something he found."</p></div></div>`
+  },
+  '26-0031-vehicle': {
+    title: 'BOLO Report — Case #26-0031',
+    case: 'Case #26-0031 — Alderman',
+    date: 'March 1, 2026',
+    author: 'Dep. P. Wainwright',
+    status: 'active',
+    body: `<div class="file-section"><div class="file-section-title">Be On Lookout</div><div class="file-body"><p>Vehicle: 1998 Ford F-150, dark blue. Wyoming plates WY-3841-K. Last known location: subject's home address, as of February 27. Vehicle not located as of date of this report. All units advised to flag on sight.</p><p>Vehicle has not appeared in impound records, traffic camera logs (limited coverage in county), or neighboring county reports.</p></div></div>`
+  },
+  'archive-project-memo': {
+    title: 'Archive Digitization Project — Scope Memo',
+    case: 'Archive Project — 2026',
+    date: 'January 3, 2026',
+    author: 'B. Colton, Records & Archives',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Project Overview</div><div class="file-body"><p>This memo outlines the scope and phasing of the ACSO archive digitization initiative, approved by Sheriff Hargrove on January 3, 2026.</p><p><strong>Phase 1</strong> (Jan–Apr 2026): Patrol logs, incident reports, and evidence documentation from 1971–1990.<br/><strong>Phase 2</strong> (May–Sept 2026): Records from 1990–2005 — includes case files of particular historical significance.<br/><strong>Phase 3</strong> (Oct–Dec 2026): 2005–present materials.</p><p>Digitized materials cleared for public release will be made available via the ACSO website. Materials under seal or pending review will be restricted to this archive system.</p></div></div>`
+  },
+  'archive-evidence-recovery': {
+    title: 'Evidence Box Recovery Report',
+    case: 'Archive Project — 2026',
+    date: 'January 28, 2026',
+    author: 'B. Colton, Records & Archives',
+    status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Recovery Summary</div><div class="file-body"><p>During Phase 1 cataloging of off-site storage unit (Ashgrove County Annex, Building C, Shelf 14), a mislabeled evidence box was recovered. Box was labeled "TRAFFIC — 1994" but contents do not correspond to traffic records.</p><p>Contents: physical evidence items and documentation consistent with Case #97-0441. Items include the original cipher document (EV-002), the envelope (EV-001), and several pages of handwritten investigator notes not previously catalogued.</p><p>Box immediately secured and transferred to Sheriff Hargrove. Det. Dunmore assigned to review contents. Chain of custody documented.</p></div></div>
+    <div class="file-section"><div class="file-section-title">Notes — B. Colton</div><div class="file-body"><p>The mislabeling appears intentional. The handwriting on the exterior label does not match any current staff. I've flagged this to Sheriff Hargrove directly. I haven't told anyone else yet.</p></div></div>`
+  },
+};
+
+function attemptLogin() {
+  const input = document.getElementById('password-input');
+  const error = document.getElementById('login-error');
+  if (input.value.trim().toUpperCase() === GLOBAL_PASS) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('archive-screen').style.display = 'block';
+    const sid = 'SID-' + Math.floor(Math.random() * 90000 + 10000);
+    document.getElementById('session-id').textContent = sid;
+    startClock();
+  } else {
+    input.classList.add('error');
+    error.textContent = 'Access denied. Invalid access code.';
+    setTimeout(() => input.classList.remove('error'), 500);
+  }
+}
+
+document.getElementById('password-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') attemptLogin();
+});
+
+function startClock() {
+  function tick() {
+    const now = new Date();
+    const str = now.toLocaleDateString('en-US') + ' ' + now.toLocaleTimeString('en-US', {hour12:false});
+    document.getElementById('archive-clock').textContent = str + ' MST';
+  }
+  tick(); setInterval(tick, 1000);
+}
+
+function toggleFolder(id) {
+  const children = document.getElementById('children-' + id);
+  const icon = document.getElementById('icon-' + id);
+  const isOpen = children.classList.contains('open');
+  children.classList.toggle('open');
+  icon.textContent = isOpen ? '▶' : '▼';
+}
+
+function openFile(id) {
+  const file = FILES[id];
+  if (!file) return;
+
+  document.querySelectorAll('.tree-file').forEach(f => f.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+
+  const statusMap = { cold:'badge-cold', open:'badge-open', active:'badge-active', closed:'badge-closed' };
+  const statusLabel = { cold:'Cold Case', open:'Under Review', active:'Active', closed:'Closed' };
+
+  document.getElementById('viewer-path').textContent = file.case + ' / ' + file.title;
+  document.getElementById('viewer-meta').textContent = file.date + ' — ' + file.author;
+  document.getElementById('sb-file').textContent = 'FILE: ' + id.toUpperCase();
+
+  document.getElementById('viewer-content').innerHTML = `
+    <div class="file-header">
+      <div class="file-case-id">${file.case}</div>
+      <div class="file-title">${file.title} <span class="badge ${statusMap[file.status]}">${statusLabel[file.status]}</span> <span class="badge badge-unlocked">&#128275; Unlocked</span></div>
+      <div class="file-meta-row">
+        <div class="file-meta-item"><strong>Date:</strong> ${file.date}</div>
+        <div class="file-meta-item"><strong>Author:</strong> ${file.author}</div>
+      </div>
+    </div>
+    ${file.body}
+  `;
+}
+
+function openLocked(fileId, caseId) {
+  document.getElementById('viewer-path').textContent = 'Locked File — Access Restricted';
+  document.getElementById('viewer-meta').textContent = '';
+  document.getElementById('sb-file').textContent = 'FILE: LOCKED';
+
+  if (unlockedCases.has(caseId)) {
+    openFile(fileId);
+    return;
+  }
+
+  document.getElementById('viewer-content').innerHTML = `
+    <div class="locked-overlay">
+      <div class="lock-icon">&#128274;</div>
+      <div class="lock-title">File Access Restricted</div>
+      <div class="lock-subtitle">This file requires a case-specific access code.<br/>Enter the code for this case folder to unlock all files within it.</div>
+      <div class="lock-input-row">
+        <input class="lock-input" id="case-pass-input" type="password" placeholder="Case access code" autocomplete="off" spellcheck="false"/>
+        <button class="lock-btn" onclick="attemptCaseUnlock('${caseId}', '${fileId}')">Unlock</button>
+      </div>
+      <div class="lock-error" id="case-pass-error">&nbsp;</div>
+      <div class="lock-hint">
+        Case folder: ${caseId.toUpperCase()}<br/>
+        Contact Det. S. Dunmore (ext. 3) for access authorization.
+      </div>
+    </div>
+  `;
+
+  document.getElementById('case-pass-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') attemptCaseUnlock(caseId, fileId);
+  });
+}
+
+function attemptCaseUnlock(caseId, fileId) {
+  const input = document.getElementById('case-pass-input');
+  const error = document.getElementById('case-pass-error');
+  if (input.value.trim().toUpperCase() === CASE_PASSWORDS[caseId]) {
+    unlockedCases.add(caseId);
+    document.querySelectorAll('.tree-file.locked').forEach(el => {
+      const onclick = el.getAttribute('onclick');
+      if (onclick && onclick.includes("'" + caseId + "'")) {
+        el.classList.remove('locked');
+        el.querySelector('.tree-file-icon').classList.remove('lock');
+        el.querySelector('.tree-file-icon').classList.add('doc');
+        el.querySelector('.tree-file-icon').textContent = '📄';
+      }
+    });
+    openFile(fileId);
+  } else {
+    input.classList.add('error');
+    error.textContent = 'Invalid case access code.';
+    setTimeout(() => input.classList.remove('error'), 500);
+  }
+}
+</script>
+
+</body>
+</html>
